@@ -40,10 +40,11 @@ const channelsSchema = new mongoose.Schema({
 const channelsModel = mongoose.model("Channels", channelsSchema);
 
 
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 2000;
 
-app.listen(2000, ()=>{
-    console.log("listening to port 2000");
+app.listen(PORT, ()=>{
+    console.log(`listening to port ${PORT}`);
 });
 
 app.post("/api/user", async (req, res) => {
