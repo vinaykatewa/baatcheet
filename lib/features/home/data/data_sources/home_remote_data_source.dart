@@ -16,8 +16,8 @@ class HomeRemoteDataSourceImplementation implements HomeRemoteDataSource {
   @override
   Future<List<ChatModel>> getAllChatData() async {
     try {
-      var request =
-          http.Request('GET', Uri.parse('http://10.0.2.2:2000/getchannels'));
+      var request = http.Request(
+          'GET', Uri.parse('https://baatcheet-9xmv.onrender.com/getchannels'));
       http.StreamedResponse response = await request.send();
       if (response.statusCode == 200) {
         var data = await response.stream.bytesToString();
@@ -41,8 +41,8 @@ class HomeRemoteDataSourceImplementation implements HomeRemoteDataSource {
   }) async {
     try {
       var headers = {'Content-Type': 'application/json'};
-      var request =
-          http.Request('POST', Uri.parse('http://10.0.2.2:2000/sendMessage'));
+      var request = http.Request(
+          'POST', Uri.parse('https://baatcheet-9xmv.onrender.com/sendMessage'));
       request.body = json.encode({
         "channelName": channelName,
         "senderUid": senderUid,
